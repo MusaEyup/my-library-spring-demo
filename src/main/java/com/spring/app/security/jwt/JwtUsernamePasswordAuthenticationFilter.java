@@ -49,7 +49,7 @@ public class JwtUsernamePasswordAuthenticationFilter extends UsernamePasswordAut
         }
     }
 
-    // here we create token
+    
     @Override
     protected void successfulAuthentication(HttpServletRequest request,
                                             HttpServletResponse response,
