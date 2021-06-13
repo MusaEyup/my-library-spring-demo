@@ -31,12 +31,6 @@ public class BookServiceImpl implements BookService {
 	}
 
 
-//	DataResult<List<Book>> getAllBooks();
-//	DataResult<Book> getBookById(Long id);
-//	DataResult<Book> getByBookTitle(String title);
-//	DataResult<Book> addNewBook(BookModel bookModel);
-//	Result update(BookModel bookModel);
-//	Result delete(BookModel bookModel);
 
 	@Override
 	public DataResult<List<Book>> getAllBooks() {

@@ -42,7 +42,7 @@ public class JwtManager {
 
     public String extractTokenFromRequest(HttpServletRequest request){
 
-        // get token from header
+        
         String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
         if ( !Strings.isNullOrEmpty(authorizationHeader ) &&
                 authorizationHeader.startsWith("Bearer ") ){
@@ -61,7 +61,7 @@ public class JwtManager {
 
     public Set<? extends GrantedAuthority> getGrantedAuthorities(String token){
         Claims claims = getClaims(token);
-        // authorities is as List of Map
+        
         List<Map<String, String>> authorities = (List<Map<String, String>>) claims.get("authorities");
 
         Set<SimpleGrantedAuthority> simpleGrantedAuthority = authorities.stream()
