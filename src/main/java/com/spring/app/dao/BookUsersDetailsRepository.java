@@ -15,6 +15,11 @@ public interface BookUsersDetailsRepository extends JpaRepository<BookUserDetail
     @Query(value = "SELECT D FROM BookUserDetails D WHERE D.user.id = ?1")
     List<BookUserDetails> findBooksByUserId(Long userId);
 
+    @Query(value = "SELECT D FROM BookUserDetails D WHERE D.user.username = ?1")
+    List<BookUserDetails> findBooksByUsername(String username);
+
+
+
     @Query(value = "SELECT D FROM BookUserDetails D WHERE D.user.id = :id")
     List<BookUserDetails> findBookUserDetailsByUserId(@Param("id") Long userId);
 

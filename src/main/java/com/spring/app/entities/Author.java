@@ -30,4 +30,10 @@ public class Author implements Serializable {
 
     private LocalDateTime createDate;
 
+    public Author(String firstName, String lastName, boolean active, LocalDateTime createDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.active = active;
+        this.createDate = createDate;
+    }
 }

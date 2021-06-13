@@ -1,5 +1,6 @@
 package com.spring.app.business.impl;
 
+import com.spring.app.business.services.AuthorService;
 import com.spring.app.business.services.BookService;
 import com.spring.app.business.services.UserService;
 import com.spring.app.dao.BookUsersDetailsRepository;
@@ -16,6 +17,7 @@ import com.spring.app.business.services.BookUsersDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -26,12 +28,14 @@ public class BookUsersDetailsServiceImpl implements BookUsersDetailsService {
     private final BookUsersDetailsRepository detailsRepository;
     private final BookService bookService;
     private final UserService userService;
+    private final AuthorService authorService;
 
     @Autowired
-    public BookUsersDetailsServiceImpl(BookUsersDetailsRepository detailsRepository, BookService bookService, UserService userService) {
+    public BookUsersDetailsServiceImpl(BookUsersDetailsRepository detailsRepository, BookService bookService, UserService userService, AuthorService authorService) {
         this.detailsRepository = detailsRepository;
         this.bookService = bookService;
         this.userService = userService;
+        this.authorService = authorService;
     }
 
     @Override
@@ -47,6 +51,11 @@ public class BookUsersDetailsServiceImpl implements BookUsersDetailsService {
             return new SuccessDataResult<>(bookDtoList, "Book list");
         }
         return new ErrorDataResult<>("Book list not found");
+    }
+
+    @Override
+    public DataResult<List<BookDto>> getBookListByUsername(String username) {
+        return null;
     }
 
     @Override
@@ -101,7 +110,44 @@ public class BookUsersDetailsServiceImpl implements BookUsersDetailsService {
 
 
 
+
+
         return null;
+    }
+
+
+    private Book getBook(BookDto dto){
+
+
+
+
+        Book book = new Book(
+                dto.getBookTitle(),
+                dto.getDescription(),
+                true,
+                LocalDateTime.now(),
+                authors
+        );
+     return null;
+    }
+
+
+    private Set<Author> getAuthorList(List<String> authors){
+
+        authors.stream()
+                .map(author -> {
+
+                    String[] fullName = author.split(" ");
+                    Author author1 = authorService.getAuthorByFullName(fullName[0], fullName[1]);
+                    if(author1 != null){
+                        return author1;
+                    }
+
+
+
+                })
+
+
     }
 
     private BookDto getBookDetails(BookUserDetails detail){

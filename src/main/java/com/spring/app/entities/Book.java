@@ -17,7 +17,6 @@ import org.hibernate.annotations.ColumnDefault;
 @Entity
 @Table(name = "Books")
 @NoArgsConstructor
-@AllArgsConstructor
 public class Book implements Serializable{
 	
 	@Id
@@ -41,6 +40,14 @@ public class Book implements Serializable{
 
 	@OneToMany(mappedBy = "book")
 	private List<BookUserDetails> bookUserDetails;
+
+	public Book(String title, String description, boolean active, LocalDateTime createDate, Set<Author> author) {
+		this.title = title;
+		this.description = description;
+		this.active = active;
+		this.createDate = createDate;
+		this.author = author;
+	}
 
 	@JsonIgnore
 	public List<BookUserDetails> getBookUserDetails() {

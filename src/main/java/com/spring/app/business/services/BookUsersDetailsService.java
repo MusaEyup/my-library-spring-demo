@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface BookUsersDetailsService {
     DataResult<List<BookDto>> getBookListByUserId(Long userId);
+    DataResult<List<BookDto>> getBookListByUsername(String username);
     DataResult<List<UserDto>> getUserListByBookId(Long bookId);
     DataResult<List<BookUserDetails>> getAll();
     DataResult<BookDto> addBookToUserLibrary(BookDto bookDto, Long userId);
