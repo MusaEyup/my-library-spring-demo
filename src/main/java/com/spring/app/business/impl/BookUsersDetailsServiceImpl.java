@@ -119,7 +119,7 @@ public class BookUsersDetailsServiceImpl implements BookUsersDetailsService {
     private Book getBook(BookDto dto){
 
 
-
+/*
 
         Book book = new Book(
                 dto.getBookTitle(),
@@ -127,28 +127,28 @@ public class BookUsersDetailsServiceImpl implements BookUsersDetailsService {
                 true,
                 LocalDateTime.now(),
                 authors
-        );
+        );*/
      return null;
     }
 
 
-    private Set<Author> getAuthorList(List<String> authors){
-
-        authors.stream()
-                .map(author -> {
-
-                    String[] fullName = author.split(" ");
-                    Author author1 = authorService.getAuthorByFullName(fullName[0], fullName[1]);
-                    if(author1 != null){
-                        return author1;
-                    }
-
-
-
-                })
-
-
-    }
+//    private Set<Author> getAuthorList(List<String> authors){
+//
+//      /*  authors.stream()
+//                .map(author -> {
+//
+//                    String[] fullName = author.split(" ");
+//                    Author author1 = authorService.getAuthorByFullName(fullName[0], fullName[1]);
+//                    if(author1 != null){
+//                        return author1;
+//                    }
+//
+//
+//
+//                })*/
+//
+//
+//    }
 
     private BookDto getBookDetails(BookUserDetails detail){
 

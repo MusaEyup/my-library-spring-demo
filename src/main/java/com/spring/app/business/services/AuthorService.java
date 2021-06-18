@@ -1,9 +1,10 @@
 package com.spring.app.business.services;
 
 import com.spring.app.entities.Author;
+import com.spring.app.results.DataResult;
 
 public interface AuthorService {
 
-    Author getAuthorByFullName(String firstName, String lastName);
-    Author addNewAuthor(String fullName);
+    DataResult<Author> getAuthorByFullName(String fullName);
+    DataResult<Author> addNewAuthor(String fullName);
 }
